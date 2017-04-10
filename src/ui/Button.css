@@ -1,20 +1,26 @@
-.OrderButton {
+.Button {
+  display: block;
+  text-align: center;
   background-color: #5cb85c;
-}
-
-.OrderButton a {
   color: #fff;
   text-decoration: none;
+  border-radius: 8px;
 }
 
-.OrderButton a {
+.Button:hover,
+.Button:active,
+.Button:focus {
+  background-color: #449d44;
+}
+
+.Button {
   color: #fff;
   text-decoration: none;
   font-weight: 400;
   padding: 10px;
 }
 
-.OrderButton a p {
+.Button p {
   margin: 0px;
   line-height: 1.25;
 }

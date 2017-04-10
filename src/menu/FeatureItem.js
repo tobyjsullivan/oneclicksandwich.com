@@ -1,7 +1,7 @@
 import React from 'react';
 import './FeatureItem.css';
 
-function FeatureItem(props) {
+function FeatureItem() {
   return (
     <div className="FeatureItem">
       <h2>Today&#39;s Sandwich</h2>

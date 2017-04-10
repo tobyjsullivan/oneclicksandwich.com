@@ -1,7 +1,7 @@
 import React from 'react';
 import './PageHeader.css';
 
-function PageHeader(props) {
+function PageHeader() {
   return (
     <div className="PageHeader">
       <h1>One-Click Sandwich</h1>
