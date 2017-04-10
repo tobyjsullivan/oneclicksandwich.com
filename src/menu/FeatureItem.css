@@ -1,0 +1,32 @@
+.FeatureItem {
+  margin-bottom: 13px;
+}
+
+.FeatureItem h2 {
+  color: #ea6028;
+}
+
+.FeatureItem img {
+  width: 100%;
+  max-width: 550px;
+  display: block;
+}
+
+.FeatureItem .image {
+  margin: 0px;
+}
+
+.FeatureItem .caption {
+  margin: 0px auto;
+  padding: 5px 0px;
+  background-color: #e95e29;
+  color: #fff;
+}
+
+.FeatureItem .caption p {
+  margin: 0px;
+}
+
+.FeatureItem p {
+  margin: 0px;
+}
