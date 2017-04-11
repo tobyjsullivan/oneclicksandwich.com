@@ -4,9 +4,9 @@ import './Button.css';
 
 function Button(props) {
   return (
-    <Link className="Button" to={props.href}>
+    <a className="Button" href={props.href}>
       {props.children}
-    </Link>
+    </a>
   );
 }
 
