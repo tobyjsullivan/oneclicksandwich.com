@@ -23,7 +23,7 @@ function OrderPage() {
         <h2>Payment</h2>
         <p>Total price: $16.90</p>
         <p>We accept all major credit cards at your door.</p>
-        <Button href="/thank-you">
+        <Button href="#/thank-you">
           <p>Send my sandwich!</p>
         </Button>
       </form>
