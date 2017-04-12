@@ -4,33 +4,3 @@
     padding: 40px;
     text-align: left;
 }
-
-.OrderPage h2 {
-  font-weight: 700;
-  font-size: 2rem;
-  line-height: 1.1;
-  margin-top: 0px;
-  margin-bottom: 10px;
-}
-
-.OrderPage form {
-  display: block;
-  max-width: 560px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.OrderPage input,
-.OrderPage textarea {
-  display: block;
-  width: 100%;
-  box-sizing: border-box;
-  line-height: 1.25;
-  color: #55595c;
-  background-color: #fff;
-  border: 1px solid rgba(0,0,0,.15);
-  border-radius: .25rem;
-  margin-bottom: 10px;
-  padding: 10px;
-  font-size: 16px;
-}
