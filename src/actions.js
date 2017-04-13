@@ -4,7 +4,7 @@ export const CREATE_ORDER = 'CREATE_ORDER';
 export const CREATE_ORDER_BEGIN = 'CREATE_ORDER_BEGIN';
 export const CREATE_ORDER_COMPLETE = 'CREATE_ORDER_COMPLETE';
 
-const API_BASE_URL = `http://localhost:8080`
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || `http://localhost:8080`;
 
 export function createOrder(order) {
   return (dispatch) => {
