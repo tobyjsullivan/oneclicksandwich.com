@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createOrder } from '../../actions';
-import { Redirect } from 'react-router-dom';
 import Button from '../../ui/Button';
 import TextInput from './TextInput';
 import PhoneNumberInput from './PhoneNumberInput';
@@ -62,10 +61,6 @@ class OrderForm extends Component {
   }
 
   render() {
-    if (this.props.created) {
-      return (<Redirect to={`/thank-you`} />);
-    }
-
     return (
       <form className="OrderForm">
         <h2>Where should we deliver your sandwich?</h2>

@@ -1,20 +1,36 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 import MenuPage from './menu/MenuPage';
-import OrderPage from './order/OrderPage';
-import OrderConfirmationPage from './order/OrderConfirmationPage';
+import OrderPopup from './order/OrderPopup';
+import OrderConfirmation from './order/OrderConfirmation';
 import './App.css';
+
+const mapStateToProps = (state) => {
+  return {
+    orderFormVisible: state.screens.orderFormVisible,
+    orderConfirmationVisible: state.screens.orderConfirmationVisible
+  };
+}
 
 class App extends Component {
   render() {
+    var popup = '';
+    if (this.props.orderFormVisible) {
+      popup = (<OrderPopup />);
+    }
+
+    if (this.props.orderConfirmationVisible) {
+      popup = (<OrderConfirmation />);
+    }
+
     return (
       <div className="App">
-        <Route exact path="/" component={MenuPage} />
-        <Route path="/order" component={OrderPage} />
-        <Route path="/thank-you" component={OrderConfirmationPage} />
+        <MenuPage />
+        {popup}
       </div>
     );
   }
 }
+App = connect(mapStateToProps)(App);
 
 export default App;

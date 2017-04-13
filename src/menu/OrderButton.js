@@ -1,9 +1,9 @@
 import React from 'react';
 import Button from '../ui/Button';
 
-function OrderButton() {
+function OrderButton(props) {
   return (
-    <Button href="#/order">
+    <Button onClick={props.onClick}>
       <p>Order one for lunch today</p>
       <p>$16.90</p>
       <p>Delivered in 35 - 45 minutes</p>

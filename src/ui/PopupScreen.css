@@ -1,0 +1,25 @@
+.PopupScreen {
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom: 0;
+    background-color:rgba(0, 0, 0, 0.50);
+    z-index:9999;
+}
+
+.PopupScreen .container {
+  box-sizing: border-box;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  max-height: 100%;
+  background-color: #eee;
+  color: #000;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 40px;
+  overflow: scroll;
+  border-radius: 5px;
+}
