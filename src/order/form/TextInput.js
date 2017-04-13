@@ -3,10 +3,17 @@ import './TextInput.css';
 
 function TextInput(props) {
   if (props.multiline) {
-    return (<MultiLineTextInput value={props.value} placeholder={props.placeholder} disabled={props.disabled} />);
+    return (<MultiLineTextInput {...props} />);
   }
 
-  return (<SingleLineTextInput value={props.value} placeholder={props.placeholder} disabled={props.disabled} />);
+  return (<SingleLineTextInput {...props} />);
+}
+
+// Unwraps the onChange event to prevent details leaking
+function handleChange(e, onValueChange) {
+  if (onValueChange) {
+    onValueChange(e.target.value);
+  }
 }
 
 function SingleLineTextInput(props) {
@@ -15,7 +22,14 @@ function SingleLineTextInput(props) {
     sometimesProps.disabled = "disabled";
   }
 
-  return (<input className="TextInput" {...sometimesProps} placeholder={props.placeholder} value={props.value} />);
+  return (
+    <input
+      className="TextInput"
+      placeholder={props.placeholder}
+      value={props.value}
+      onChange={(e) => handleChange(e, props.onValueChange)}
+      {...sometimesProps} />
+    );
 }
 
 function MultiLineTextInput(props) {
@@ -24,7 +38,13 @@ function MultiLineTextInput(props) {
     sometimesProps.disabled = "disabled";
   }
 
-  return (<textarea className="TextInput" placeholder={props.placeholder} {...sometimesProps}>{props.value}</textarea>)
+  return (
+    <textarea
+      className="TextInput"
+      placeholder={props.placeholder}
+      onChange={(e) => handleChange(e, props.onValueChange)}
+      {...sometimesProps}>{props.value}</textarea>
+    )
 }
 
 export default TextInput;
