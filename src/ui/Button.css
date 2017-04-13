@@ -7,6 +7,13 @@
   border-radius: 8px;
 }
 
+.Button.disabled,
+.Button.disabled:hover,
+.Button.disabled:active,
+.Button.disabled:focus {
+  background-color: #666;
+}
+
 .Button:hover,
 .Button:active,
 .Button:focus {

@@ -1,9 +1,25 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { createOrder } from '../../actions';
+import { Redirect } from 'react-router-dom';
 import Button from '../../ui/Button';
 import TextInput from './TextInput';
 import PhoneNumberInput from './PhoneNumberInput';
 import AddressInput from './AddressInput';
 import './OrderForm.css';
+
+const mapStateToProps = (state) => {
+  return {
+    isSaving: state.orders.saveStarted,
+    created: state.orders.saveFinished
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onSubmitOrder: (order) => {dispatch(createOrder(order))}
+  };
+};
 
 class OrderForm extends Component {
   constructor(props) {
@@ -33,7 +49,23 @@ class OrderForm extends Component {
     this.setState({ instructionsValue: instructions });
   }
 
+  handleSubmit() {
+    this.props.onSubmitOrder({
+      name: this.state.nameValue,
+      phone: this.state.phoneNumberValue,
+      address1: this.state.addressValue.address1,
+      address2: this.state.addressValue.address2,
+      postalCode: this.state.addressValue.postalCode,
+      city: this.state.addressValue.city,
+      instructions: this.state.instructionsValue
+    });
+  }
+
   render() {
+    if (this.props.created) {
+      return (<Redirect to={`/thank-you`} />);
+    }
+
     return (
       <form className="OrderForm">
         <h2>Where should we deliver your sandwich?</h2>
@@ -48,12 +80,13 @@ class OrderForm extends Component {
         <h2>Payment</h2>
         <p>Total price: $16.90</p>
         <p>We accept all major credit cards at your door.</p>
-        <Button href="#/thank-you">
+        <Button processing={this.props.isSaving} onClick={() => this.handleSubmit()}>
           <p>Send my sandwich!</p>
         </Button>
       </form>
     );
   }
 }
+OrderForm = connect(mapStateToProps, mapDispatchToProps)(OrderForm);
 
 export default OrderForm;
